@@ -1,0 +1,20 @@
+[
+  {
+    "client_id": "1",
+    "client_name": "Blabla Energy, LLC",
+    "created_at": "2020-12-10T08:30:32.326Z",
+    "updated_at": "2020-12-10T08:30:32.326Z"
+  },
+  {
+    "client_id": "2",
+    "client_name": "Client 2 Energy, LLC",
+    "created_at": "2020-12-10T08:30:32.326Z",
+    "updated_at": "2020-12-10T08:30:32.326Z"
+  },
+  {
+    "client_id": "3",
+    "client_name": "Client 3 Energy, LLC",
+    "created_at": "2020-12-10T08:30:32.326Z",
+    "updated_at": "2020-12-10T08:30:32.326Z"
+  }
+]
