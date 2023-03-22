@@ -11,7 +11,7 @@ const notFound = require("./errors/notFound");
 */
 const errorHandler = require("./errors/errorHandler");
 const notFound = require("./errors/notFound");
-const projectsRouter = require("./project/project.router");
+const projectsRouter = require("./projects/projects.router");
 
 const app = express();
 

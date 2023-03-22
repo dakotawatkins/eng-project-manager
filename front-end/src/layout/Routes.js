@@ -6,6 +6,8 @@ import {
   useHistory,
   useLocation,
 } from "react-router-dom";
+import ProjectsNavMenu from "../menus/ProjectsNavMenu";
+import Project from "../projects/Project";
 
 /**
  * Defines all the routes for the application.
@@ -14,9 +16,16 @@ import {
 
 function Routes() {
   return (
-    <Switch>
-      <Route></Route>
-    </Switch>
+    <>
+      <ProjectsNavMenu />
+
+      <Route exact path="/projects/:projectId">
+        <Project />
+      </Route>
+      {/* <Switch>
+        <Route></Route>
+      </Switch> */}
+    </>
   );
 }
 
