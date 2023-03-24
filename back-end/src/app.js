@@ -12,7 +12,7 @@ const notFound = require("./errors/notFound");
 const errorHandler = require("./errors/errorHandler");
 const notFound = require("./errors/notFound");
 const projectsRouter = require("./projects/projects.router");
-const equipmentCatalogRouter = require("./equipment/equipmentCatalog.router");
+const equipmentCatalogRouter = require("./equipmentCatalog/equipmentCatalog.router");
 
 const app = express();
 
