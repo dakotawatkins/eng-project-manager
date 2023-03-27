@@ -1,11 +1,11 @@
 /**
- * Defines the router for reservation resources.
+ * Defines the router for equipment resources.
  *
  * @type {Router}
  */
 
 const router = require("express").Router();
-const controller = require("./equipmentCatalog.controller");
+const controller = require("./equipment-catalog.controller");
 const methodNotAllowed = require("../errors/methodNotAllowed");
 
 router

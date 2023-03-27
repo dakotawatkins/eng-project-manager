@@ -12,7 +12,7 @@ const notFound = require("./errors/notFound");
 const errorHandler = require("./errors/errorHandler");
 const notFound = require("./errors/notFound");
 const projectsRouter = require("./projects/projects.router");
-const equipmentCatalogRouter = require("./equipmentCatalog/equipmentCatalog.router");
+const equipmentCatalogRouter = require("./equipment/equipment-catalog.router");
 
 const app = express();
 
@@ -31,7 +31,7 @@ router.get("/", cors(), (req, res) => {
 app.use("/", router);
 
 app.use("/projects", projectsRouter);
-// app.use("/equipment", equipmentCatalogRouter);
+app.use("/equipment", equipmentCatalogRouter);
 
 app.use(notFound);
 app.use(errorHandler);

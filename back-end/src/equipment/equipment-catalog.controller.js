@@ -1,4 +1,4 @@
-const service = require("./equipmentCatalog.service");
+const service = require("./equipment-catalog.service");
 const asyncErrorBoundary = require("../errors/asyncErrorBoundary");
 
 ///// VALIDATORS /////
