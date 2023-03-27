@@ -20,6 +20,16 @@ app.use(cors());
 // app.options("*", cors());
 app.use(express.json());
 
+const router = express.Router();
+router.get("/", cors(), (req, res) => {
+  res.json({
+    message:
+      "Welcome! You can access the data using these routes: /projects, /equipment, projects/:projectId.",
+  });
+});
+
+app.use("/", router);
+
 app.use("/projects", projectsRouter);
 app.use("/equipment", equipmentCatalogRouter);
 
