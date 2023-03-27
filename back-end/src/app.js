@@ -31,7 +31,7 @@ router.get("/", cors(), (req, res) => {
 app.use("/", router);
 
 app.use("/projects", projectsRouter);
-app.use("/equipment", equipmentCatalogRouter);
+// app.use("/equipment", equipmentCatalogRouter);
 
 app.use(notFound);
 app.use(errorHandler);
