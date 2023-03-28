@@ -1,7 +1,7 @@
 
 [
     {
-        "unique_id": "1",
+        "xfmr_unique_id": "1",
         "mpt_id": "1",
         "project_id": "1",
         "transformer_manufacturer": "TBD",
@@ -26,7 +26,7 @@
         "impedance_tolerance": "0.111"
     },
     {
-        "unique_id": "2",
+        "xfmr_unique_id": "2",
         "mpt_id": "2",
         "project_id": "1",
         "transformer_manufacturer": "TBD",
@@ -51,7 +51,7 @@
         "impedance_tolerance": "0.111"
     },
     {
-        "unique_id": "3",
+        "xfmr_unique_id": "3",
         "mpt_id": "1",
         "project_id": "2",
         "transformer_manufacturer": "TBD",
@@ -76,7 +76,7 @@
         "impedance_tolerance": "0.122"
     },
     {
-        "unique_id": "4",
+        "xfmr_unique_id": "4",
         "mpt_id": "1",
         "project_id": "3",
         "transformer_manufacturer": "TBD",

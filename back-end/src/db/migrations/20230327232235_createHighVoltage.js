@@ -16,10 +16,10 @@ exports.up = function (knex) {
       .references("section_id")
       .inTable("transmission_line")
       .onDelete("CASCADE");
-    table.integer("mpt_id").notNullable();
+    table.integer("xfmr_unique_id").notNullable();
     table
-      .foreign("mpt_id")
-      .references("mpt_id")
+      .foreign("xfmr_unique_id")
+      .references("xfmr_unique_id")
       .inTable("main_power_transformer")
       .onDelete("CASCADE");
     table.timestamps(true, true);
