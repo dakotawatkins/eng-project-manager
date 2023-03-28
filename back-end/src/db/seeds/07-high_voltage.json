@@ -1,0 +1,42 @@
+
+[
+    {
+        "hv_id": "1",
+        "hv_interconnect_voltage_kv": "345",
+        "per_unit_base_mva": "100",
+        "utility_fault_current": "",
+        "section_id": "1",
+        "project_id": "1",
+        "mpt_id": "1"
+    },
+    {
+        "hv_id": "2",
+        "hv_interconnect_voltage_kv": "345",
+        "per_unit_base_mva": "100",
+        "utility_fault_current": "",
+        "project_id": "1",
+        "section_id": "2",
+        "mpt_id": "2"
+    },
+    {
+        "hv_id": "3",
+        "hv_interconnect_voltage_kv": "125",
+        "per_unit_base_mva": "300",
+        "utility_fault_current": "",
+        "project_id": "2",
+        "section_id": "1",
+        "mpt_id": "2"
+    },
+    {
+        "hv_id": "4",
+        "hv_interconnect_voltage_kv": "100",
+        "per_unit_base_mva": "150",
+        "utility_fault_current": "",
+        "project_id": "3",
+        "section_id": "1",
+        "mpt_id": "2"
+    }
+  ]
+  
+  
+  

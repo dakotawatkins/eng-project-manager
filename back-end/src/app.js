@@ -13,6 +13,7 @@ const errorHandler = require("./errors/errorHandler");
 const notFound = require("./errors/notFound");
 const projectsRouter = require("./projects/projects.router");
 const equipmentCatalogRouter = require("./equipment/equipment-catalog.router");
+const hvEquipmentRouter = require("./hv-equipment/hv-equipment.router");
 
 const app = express();
 
@@ -32,6 +33,7 @@ app.use("/", router);
 
 app.use("/projects", projectsRouter);
 app.use("/equipment", equipmentCatalogRouter);
+app.use("/hv", hvEquipmentRouter);
 
 app.use(notFound);
 app.use(errorHandler);
