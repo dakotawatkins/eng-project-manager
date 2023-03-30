@@ -15,6 +15,7 @@ const projectsRouter = require("./projects/projects.router");
 const equipmentCatalogRouter = require("./equipment/equipment-catalog.router");
 const hvEquipmentRouter = require("./hv-equipment/hv-equipment.router");
 const ModulesEquipmentRouter = require("./modules/modules.router");
+const MvCircuitsRouter = require("./mv-circuits/mv-circuits.router");
 
 const app = express();
 
@@ -26,7 +27,7 @@ const router = express.Router();
 router.get("/", cors(), (req, res) => {
   res.json({
     message:
-      "Welcome! You can access the data using these routes: /projects, /equipment, projects/:projectId, projects/:projectId/hv, projects/:projectId/hv/:hvId, projects/:projectId/modules, projects/:projectId/modules/:modId.",
+      "Welcome! You can access the data using these routes: /projects, /equipment, projects/:project_id, projects/:project_id/hv, projects/:project_id/hv/:hv_id, projects/:project_id/modules, projects/:project_id/modules/:mod_id, projects/:project_id/mv-circuits, projects/:project_id/mv-circuits/:mv_unique_id .",
   });
 });
 
@@ -36,6 +37,7 @@ app.use("/projects", projectsRouter);
 app.use("/equipment", equipmentCatalogRouter);
 app.use("/projects/:project_id/hv", hvEquipmentRouter);
 app.use("/projects/:project_id/modules", ModulesEquipmentRouter);
+app.use("/projects/:project_id/mv-circuits", MvCircuitsRouter);
 
 app.use(notFound);
 app.use(errorHandler);
