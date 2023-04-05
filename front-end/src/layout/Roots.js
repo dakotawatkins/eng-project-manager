@@ -8,16 +8,18 @@ import EquipmentCatalog from "../equipment/EquipmentCatalog";
  * @returns {JSX.Element}
  */
 
-function Layout() {
+function Roots() {
   return (
-    <Routes>
-      <Route path="/" element={<ProjectsNavMenu />} />
+    <div>
+      <Routes>
+        <Route exact path="/" element={<ProjectsNavMenu />} />
 
-      <Route exact path="/projects/:projectId" element={<Project />} />
+        <Route exact path="/projects/:projectId" element={<Project />} />
 
-      <Route exact path="/equipment" element={<EquipmentCatalog />} />
-    </Routes>
+        <Route exact path="/equipment" element={<EquipmentCatalog />} />
+      </Routes>
+    </div>
   );
 }
 
-export default Layout;
+export default Roots;

@@ -1,6 +1,7 @@
 exports.up = function (knex) {
   return knex.schema.createTable("site_project", (table) => {
-    table.integer("project_id").primary().notNullable();
+    table.increments("site_id").primary().notNullable();
+    table.integer("project_id").notNullable();
     table
       .foreign("project_id")
       .references("project_id")

@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Layout from "./layout/Layout";
-
+import ProjectsNavMenu from "./menus/ProjectsNavMenu";
+import Project from "./projects/Project";
+import EquipmentCatalog from "./equipment/EquipmentCatalog";
 /**
  * Defines the root application component.
  * @returns {JSX.Element}
@@ -10,11 +11,14 @@ import Layout from "./layout/Layout";
 function App() {
   return (
     <div>
-      <Switch>
-        <Route path="/">
-          <Layout />
-        </Route>
-      </Switch>
+      <Routes>
+        {/* <Route path="/" element={<Layout />} /> */}
+        <Route path="/" element={<ProjectsNavMenu />} />
+
+        <Route exact path="/projects/:projectId" element={<Project />} />
+
+        <Route exact path="/equipment" element={<EquipmentCatalog />} />
+      </Routes>
     </div>
   );
 }

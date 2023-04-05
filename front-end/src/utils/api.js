@@ -58,18 +58,30 @@ async function fetchJson(url, options, onCancel) {
 // Lists all projects for a particular data (params input)
 export async function listProjects(params, signal) {
   const url = new URL(`${API_BASE_URL}/projects`);
-
   if (params) {
     Object.entries(params).forEach(([key, value]) =>
       url.searchParams.append(key, value.toString())
     );
   }
-
   return await fetchJson(url, { headers, signal, method: "GET" }, []);
 }
 
 // Retrieves the project with the specified `projectId`
 export async function readProject(projectId, signal) {
   const url = `${API_BASE_URL}/projects/${projectId}`;
+  return await fetchJson(url, { signal });
+}
+
+// returns entire equipment catalog on the equipment page
+export async function listEquipment(signal) {
+  const url = `${API_BASE_URL}/equipment`;
+  return await fetchJson(url, { headers, signal, method: "GET" }, []);
+}
+
+// Retrieves the project site info with the specified `projectId`
+// THE URL OF THIS SHOULD GET LOOKED AT FOR BOTH THIS FUNCTION AND THE BACKEND ROUTE
+// THIS IS CURRENTLY 'DUMMY' DATA BY USING 'projectId' as the 'site-project' ID.
+export async function readSiteProject(projectId, signal) {
+  const url = `${API_BASE_URL}/projects/${projectId}/site-project/${projectId}`;
   return await fetchJson(url, { signal });
 }
