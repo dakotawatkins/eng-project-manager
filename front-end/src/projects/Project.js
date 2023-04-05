@@ -43,6 +43,17 @@ function Project() {
         <div>Project Owner ID: {project.owner_id}</div>
       </div>
       <div>{siteProject.site_id}</div>
+      <div>{siteProject.site_address_line_1}</div>
+      <div>{siteProject.site_city}</div>
+      <div>{siteProject.site_state}</div>
+      <div>{siteProject.site_zipcode}</div>
+      <div>{siteProject.site_latitude}</div>
+      <div>{siteProject.site_longitude}</div>
+      <div>{siteProject.ashrae_city}</div>
+      <div>{siteProject.ashrae_city}</div>
+      <div>{siteProject.ashrae_city}</div>
+      <div>{siteProject.ashrae_city}</div>
+      <div>{siteProject.ashrae_city}</div>
     </div>
   );
 }
