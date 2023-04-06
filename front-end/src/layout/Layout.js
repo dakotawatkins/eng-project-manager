@@ -10,13 +10,18 @@ import EquipmentCatalog from "../equipment/EquipmentCatalog";
 
 function Layout() {
   return (
-    <Routes>
-      <Route path="/" element={<ProjectsNavMenu />} />
+    <div>
+      {/* <div>
+        <ProjectsNavMenu />
+      </div> */}
+      <Routes>
+        {/* <Route path="/" element={<ProjectsNavMenu />} /> */}
 
-      <Route exact path="/projects/:projectId" element={<Project />} />
+        <Route exact path="/projects/:projectId" element={<Project />} />
 
-      <Route exact path="/equipment" element={<EquipmentCatalog />} />
-    </Routes>
+        <Route exact path="/equipment" element={<EquipmentCatalog />} />
+      </Routes>
+    </div>
   );
 }
 

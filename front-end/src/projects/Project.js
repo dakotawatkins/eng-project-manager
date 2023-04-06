@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { readProject, readSiteProject } from "../utils/api";
+import DirectNavToProject from "../menus/DirectNavToProject";
 
 function Project() {
   const { projectId } = useParams();
@@ -35,6 +36,7 @@ function Project() {
 
   return (
     <div>
+      <DirectNavToProject />
       <h1>{project.project_name}</h1>
       <table className="table text-wrap text-center table-hover">
         <thead className="thead-dark">

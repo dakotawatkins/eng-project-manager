@@ -23,7 +23,7 @@ export default function ProjectList() {
   return (
     <div className="test-container">
       <div className="proj-list-left">
-        <h4>CURRENT PROJECTS</h4>
+        <h4>PROJECTS</h4>
         {projects.map((project) => (
           <button
             key={project.project_id}
@@ -91,36 +91,36 @@ export default function ProjectList() {
 // import Project from "./Project";
 
 // function Projects() {
-//   const [projects, setProjects] = useState([]);
-//   useEffect(() => {
-//     function retrieveProjects() {
-//       const abortController = new AbortController();
-//       listProjects(abortController.signal).then(setProjects);
-//       return () => abortController.abort();
-//     }
+// const [projects, setProjects] = useState([]);
+// useEffect(() => {
+//   function retrieveProjects() {
+//     const abortController = new AbortController();
+//     listProjects(abortController.signal).then(setProjects);
+//     return () => abortController.abort();
+//   }
 
-//     retrieveProjects();
-//   }, []);
+//   retrieveProjects();
+// }, []);
 
-//   const list = projects.map((project) => (
-//     // <div>
-//     //   <div>Project ID: {project.project_id}</div>
-//     //   <div>Project Code: {project.project_code}</div>
-//     //   <div>Project Name: {project.project_name}</div>
-//     //   <div>Project Client ID: {project.client_id}</div>
-//     //   <div>Project Owner ID: {project.owner_id}</div>
-//     // </div>
+// const list = projects.map((project) => (
+//   // <div>
+//   //   <div>Project ID: {project.project_id}</div>
+//   //   <div>Project Code: {project.project_code}</div>
+//   //   <div>Project Name: {project.project_name}</div>
+//   //   <div>Project Client ID: {project.client_id}</div>
+//   //   <div>Project Owner ID: {project.owner_id}</div>
+//   // </div>
 
-//     // <div>
-//     //   <Project project={project} />
-//     // </div>
+//   // <div>
+//   //   <Project project={project} />
+//   // </div>
 
-//     <div key={project.project_id}>
-//       <Link to={`/projects/${project.project_id}`} className="btn btn-primary">
-//         {project.project_name}
-//       </Link>
-//     </div>
-//   ));
+//   <div key={project.project_id}>
+//     <Link to={`/projects/${project.project_id}`} className="btn btn-primary">
+//       {project.project_name}
+//     </Link>
+//   </div>
+// ));
 
 //   return (
 //     <div>
