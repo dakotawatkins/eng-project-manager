@@ -21,63 +21,65 @@ export default function ProjectList() {
   }, []);
 
   return (
-    <div className="lb-project-list">
-      <h3>PROJECTS</h3>
-      <div className="proj-display">
-        <div className="proj-col-left">
-          {projects.map((project) => (
-            <button
-              key={project.project_id}
-              className="proj-btn"
+    <div className="test-container">
+      <div className="proj-list-left">
+        <h4>CURRENT PROJECTS</h4>
+        {projects.map((project) => (
+          <button
+            key={project.project_id}
+            className="proj-btn"
+            onClick={(e) => {
+              e.preventDefault();
+              setActiveProject(project);
+              console.log(activeProject, "active project");
+            }}
+          >
+            {project.project_name}
+          </button>
+        ))}
+      </div>
+      <div className="proj-list-right">
+        {activeProject && (
+          <div className="proj-disp-container">
+            <h3>{activeProject.project_name.toUpperCase()}</h3>
+            <a
+              className="close-btn"
               onClick={(e) => {
                 e.preventDefault();
-                setActiveProject(project);
-                console.log(activeProject, "active project");
+                setActiveProject("");
+                console.log(activeProject, "project closed");
               }}
             >
-              {project.project_name}
-            </button>
-          ))}
-        </div>
-        <div className="proj-col-right">
-          {activeProject && (
-            <div className="proj-info">
-              <h3>{activeProject.project_name.toUpperCase()}</h3>
-              <button
-                className="close-btn"
-                onClick={(e) => {
-                  e.preventDefault();
-                  setActiveProject("");
-                  console.log(activeProject, "project closed");
-                }}
-              >
-                Close
-              </button>
-              {activeProject.project_id === 1 && (
-                <img className="site-map" src={site_map_1} />
-              )}
-              {activeProject.project_id === 2 && (
-                <img className="site-map" src={site_map_2} />
-              )}
-              {activeProject.project_id === 3 && (
-                <img className="site-map" src={site_map_3} />
-              )}
-              <Link
-                className="proj-link"
-                to={`/projects/${activeProject.project_id}`}
-              >
-                To Project Home Page
-              </Link>
-              <div className="proj-info-text">
-                <div>Project ID: {activeProject.project_id}</div>
-                <div>Project Code: {activeProject.project_code}</div>
-                <div>Project Name: {activeProject.project_name}</div>
-                <div>Project Client ID: {activeProject.client_id}</div>
-                <div>Project Owner ID: {activeProject.owner_id}</div>
+              Close
+            </a>
+            <div className="site-map">
+              {activeProject.project_id === 1 && <img src={site_map_1} />}
+              {activeProject.project_id === 2 && <img src={site_map_2} />}
+              {activeProject.project_id === 3 && <img src={site_map_3} />}
+            </div>
+            <Link className="" to={`/projects/${activeProject.project_id}`}>
+              To Project Home Page
+            </Link>
+            <div className="proj-gen-info">
+              <div>
+                <span>Project ID: </span>
+                {activeProject.project_id}
+              </div>
+              <div>
+                <span>Project Code: </span> {activeProject.project_code}
+              </div>
+              <div>
+                <span>Project Name: </span> {activeProject.project_name}
+              </div>
+              <div>
+                <span>Project Client ID: </span> {activeProject.client_id}
+              </div>
+              <div>
+                <span>Project Owner ID: </span> {activeProject.owner_id}
               </div>
             </div>
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </div>
   );

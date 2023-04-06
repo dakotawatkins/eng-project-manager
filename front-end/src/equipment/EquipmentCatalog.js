@@ -1,12 +1,3 @@
-// function EquipmentCatalog() {
-//   return (
-//     <div>
-//       <h1>hello</h1>
-//     </div>
-//   );
-// }
-// export default EquipmentCatalog;
-
 import React, { useState, useEffect } from "react";
 import EquipmentCatalogRow from "./EquipmentCatalogRow";
 import { listEquipment } from "../utils/api";
