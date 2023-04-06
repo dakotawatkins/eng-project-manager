@@ -1,11 +1,11 @@
 
 [
     {
-        "unique_id": "1",
+        "transmission_line_unique_id": "1",
         "section_id": "1",
         "project_id": "1",
-        "from": "0",
-        "to": "0",
+        "from": "-",
+        "to": "-",
         "distance_m": "1000",
         "conductor_size_m2": "10",
         "conductor_positive_sequence_resistance": "0",
@@ -14,15 +14,15 @@
         "bundle_size": "1",
         "additional_loading_on_t_line_from_nearby_projects": "",
         "nearby_project": "1",
-        "rrc_notes": "",
-        "client_notes": ""
+        "rrc_notes": "Example RRC note",
+        "client_notes": "This is example of a client note."
     },
     {
-        "unique_id": "2",
+        "transmission_line_unique_id": "2",
         "section_id": "2",
         "project_id": "1",
-        "from": "",
-        "to": "",
+        "from": "-",
+        "to": "-",
         "distance_m": "1000",
         "conductor_size_m2": "10",
         "conductor_positive_sequence_resistance": "8",
@@ -30,16 +30,16 @@
         "normal_op_temp_of_conductor_c": "50",
         "bundle_size": "1",
         "additional_loading_on_t_line_from_nearby_projects": "0",
-        "nearby_project": "1",
-        "rrc_notes": "",
-        "client_notes": ""
+        "nearby_project": "N/A",
+        "rrc_notes": "Example RRC note",
+        "client_notes": "This is example of a client note."
     },
     {
-        "unique_id": "3",
+        "transmission_line_unique_id": "3",
         "section_id": "3",
         "project_id": "1",
-        "from": "",
-        "to": "",
+        "from": "-",
+        "to": "-",
         "distance_m": "1000",
         "conductor_size_m2": "10",
         "conductor_positive_sequence_resistance": "12",
@@ -47,16 +47,16 @@
         "normal_op_temp_of_conductor_c": "50",
         "bundle_size": "1",
         "additional_loading_on_t_line_from_nearby_projects": "0",
-        "nearby_project": "",
-        "rrc_notes": "",
-        "client_notes": ""
+        "nearby_project": "N/A",
+        "rrc_notes": "Example RRC note",
+        "client_notes": "This is example of a client note."
     },
     {
-        "unique_id": "4",
+        "transmission_line_unique_id": "4",
         "section_id": "4",
         "project_id": "2",
-        "from": "",
-        "to": "",
+        "from": "-",
+        "to": "-",
         "distance_m": "1000",
         "conductor_size_m2": "10",
         "conductor_positive_sequence_resistance": "0",
@@ -64,16 +64,16 @@
         "normal_op_temp_of_conductor_c": "50",
         "bundle_size": "1",
         "additional_loading_on_t_line_from_nearby_projects": "0",
-        "nearby_project": "",
-        "rrc_notes": "",
-        "client_notes": ""
+        "nearby_project": "N/A",
+        "rrc_notes": "Example RRC note",
+        "client_notes": "This is example of a client note."
     },
     {
-        "unique_id": "5",
+        "transmission_line_unique_id": "5",
         "section_id": "5",
         "project_id": "2",
-        "from": "",
-        "to": "",
+        "from": "-",
+        "to": "-",
         "distance_m": "1000",
         "conductor_size_m2": "10",
         "conductor_positive_sequence_resistance": "0",
@@ -81,16 +81,16 @@
         "normal_op_temp_of_conductor_c": "50",
         "bundle_size": "1",
         "additional_loading_on_t_line_from_nearby_projects": "0",
-        "nearby_project": "",
-        "rrc_notes": "",
-        "client_notes": ""
+        "nearby_project": "N/A",
+        "rrc_notes": "Example RRC note",
+        "client_notes": "This is example of a client note."
     },
     {
-        "unique_id": "6",
+        "transmission_line_unique_id": "6",
         "section_id": "6",
         "project_id": "3",
-        "from": "",
-        "to": "",
+        "from": "-",
+        "to": "-",
         "distance_m": "1000",
         "conductor_size_m2": "10",
         "conductor_positive_sequence_resistance": "0",
@@ -98,9 +98,9 @@
         "normal_op_temp_of_conductor_c": "50",
         "bundle_size": "1",
         "additional_loading_on_t_line_from_nearby_projects": "0",
-        "nearby_project": "",
-        "rrc_notes": "",
-        "client_notes": ""
+        "nearby_project": "N/A",
+        "rrc_notes": "Example RRC note",
+        "client_notes": "This is example of a client note."
     }
   ]
   

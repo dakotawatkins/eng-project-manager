@@ -1,6 +1,6 @@
 exports.up = function (knex) {
   return knex.schema.createTable("transmission_line", (table) => {
-    table.increments("unique_id").primary().notNullable();
+    table.increments("transmission_line_unique_id").primary().notNullable();
     table.integer("section_id").unique().notNullable();
     table.integer("project_id").notNullable();
     table

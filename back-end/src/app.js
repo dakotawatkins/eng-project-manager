@@ -14,9 +14,11 @@ const notFound = require("./errors/notFound");
 const projectsRouter = require("./projects/projects.router");
 const equipmentCatalogRouter = require("./equipment/equipment-catalog.router");
 const hvEquipmentRouter = require("./hv-equipment/hv-equipment.router");
-const ModulesEquipmentRouter = require("./modules/modules.router");
-const MvCircuitsRouter = require("./mv-circuits/mv-circuits.router");
-const SiteProject = require("./site-project/site-project.router");
+const modulesEquipmentRouter = require("./modules/modules.router");
+const mvCircuitsRouter = require("./mv-circuits/mv-circuits.router");
+const siteProject = require("./site-project/site-project.router");
+const transmissionLine = require("./transmission-line/transmission-line.router");
+const mainPowerTransformer = require("./main-power-transformer/main-power-transformer.router");
 
 const app = express();
 
@@ -37,9 +39,11 @@ app.use("/", router);
 app.use("/projects", projectsRouter);
 app.use("/equipment", equipmentCatalogRouter);
 app.use("/projects/:project_id/hv", hvEquipmentRouter);
-app.use("/projects/:project_id/modules", ModulesEquipmentRouter);
-app.use("/projects/:project_id/mv-circuits", MvCircuitsRouter);
-app.use("/projects/:project_id/site-project", SiteProject);
+app.use("/projects/:project_id/modules", modulesEquipmentRouter);
+app.use("/projects/:project_id/mv-circuits", mvCircuitsRouter);
+app.use("/projects/:project_id/site-project", siteProject);
+app.use("/projects/:project_id/transmission-line", transmissionLine);
+app.use("/projects/:project_id/main-power-transformer", mainPowerTransformer);
 
 app.use(notFound);
 app.use(errorHandler);
