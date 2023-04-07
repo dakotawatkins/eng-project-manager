@@ -4,6 +4,7 @@ import ProjectsNavMenu from "./menus/ProjectsNavMenu";
 import Project from "./projects/Project";
 import EquipmentCatalog from "./equipment/EquipmentCatalog";
 import { NavBarTop } from "./menus/NavBarTop";
+import StudyHV from "./studies/StudyHV";
 /**
  * Defines the root application component.
  * @returns {JSX.Element}
@@ -20,6 +21,8 @@ function App() {
         <Route path="/" element={<ProjectsNavMenu />} />
 
         <Route path="/projects/:projectId" element={<Project />} />
+
+        <Route path="/projects/:projectId/hv" element={<StudyHV />} />
 
         <Route exact path="/equipment" element={<EquipmentCatalog />} />
       </Routes>

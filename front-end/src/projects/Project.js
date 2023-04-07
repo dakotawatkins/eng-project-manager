@@ -11,7 +11,7 @@ function Project() {
   const [project, setProject] = useState({});
   const [siteProject, setSiteProject] = useState({});
   const [error, setError] = useState(null);
-  const [activeTab, setActiveTab] = useState("");
+  const [activeTab, setActiveTab] = useState("Tab1");
 
   function loadProject(projectId) {
     setError(null);
@@ -76,7 +76,7 @@ function Project() {
       <div>
         {activeTab === "Tab2" && (
           <div>
-            <TabStudies project={project} />
+            <TabStudies project_id={project.project_id} />
           </div>
         )}
       </div>
