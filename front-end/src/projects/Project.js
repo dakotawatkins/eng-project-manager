@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { readProject, readSiteProject } from "../utils/api";
 import DirectNavToProject from "../menus/DirectNavToProject";
+import TabStudies from "../menus/TabStudies";
 
 function Project() {
   const { projectId } = useParams();
@@ -10,6 +11,7 @@ function Project() {
   const [project, setProject] = useState({});
   const [siteProject, setSiteProject] = useState({});
   const [error, setError] = useState(null);
+  const [activeTab, setActiveTab] = useState("");
 
   function loadProject(projectId) {
     setError(null);
@@ -36,7 +38,51 @@ function Project() {
 
   return (
     <div>
-      <DirectNavToProject />
+      {/* <DirectNavToProject /> */}
+      {/* <TabStudies /> */}
+
+      <div className="proj-tabs">
+        <button
+          className={`${"tab"}`}
+          onClick={(e) => {
+            e.preventDefault();
+            setActiveTab("Tab1");
+            console.log(activeTab, "Tab1");
+          }}
+        >
+          Projects
+        </button>
+
+        <button
+          className={`${"tab"}`}
+          onClick={(e) => {
+            e.preventDefault();
+            setActiveTab("Tab2");
+            console.log(activeTab, "Tab2");
+          }}
+        >
+          Studies
+        </button>
+      </div>
+
+      <div>
+        {activeTab === "Tab1" && (
+          <div>
+            <DirectNavToProject />
+          </div>
+        )}
+      </div>
+
+      <div>
+        {activeTab === "Tab2" && (
+          <div>
+            <TabStudies project={project} />
+          </div>
+        )}
+      </div>
+
+      {/* PROJECT INFO */}
+
       <h1>{project.project_name}</h1>
       <table className="table text-wrap text-center table-hover">
         <thead className="thead-dark">

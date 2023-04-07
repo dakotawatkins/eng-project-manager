@@ -30,6 +30,9 @@ export default function DirectNavToProject() {
         <h4>PROJECTS</h4>
         {list}
       </div>
+      {/* <div className="proj-list-left">
+        <h4>STUDIES - on click this will display a list of the studies</h4>
+      </div> */}
     </div>
   );
 }
