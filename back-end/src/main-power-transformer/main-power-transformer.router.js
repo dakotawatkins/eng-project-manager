@@ -9,18 +9,29 @@ const controller = require("./main-power-transformer.controller");
 const methodNotAllowed = require("../errors/methodNotAllowed");
 
 router
-  .route("/:xfmr_unique_id/status")
+  .route("/:project_id/main-power-transformer/:mpt_id/status")
   .put(controller.update)
   .all(methodNotAllowed);
 
+// router
+//   .route("/:xfmr_unique_id")
+//   .get(controller.read)
+//   .put(controller.edit)
+//   .all(methodNotAllowed);
+
 router
-  .route("/:xfmr_unique_id")
+  .route("/:project_id/main-power-transformer/:mpt_id")
   .get(controller.read)
   .put(controller.edit)
   .all(methodNotAllowed);
 
+// router
+//   .route("/")
+//   .get(controller.list)
+//   .post(controller.create)
+//   .all(methodNotAllowed);
 router
-  .route("/")
+  .route("/:project_id/main-power-transformer/")
   .get(controller.list)
   .post(controller.create)
   .all(methodNotAllowed);

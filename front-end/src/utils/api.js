@@ -93,3 +93,11 @@ export async function listTransmissionLine(projectId, signal) {
   const url = `${API_BASE_URL}/projects/${projectId}/transmission-line`;
   return await fetchJson(url, { signal });
 }
+
+// Retrieves the project site info with the specified `projectId`
+// THE URL OF THIS SHOULD GET LOOKED AT FOR BOTH THIS FUNCTION AND THE BACKEND ROUTE
+// THIS IS CURRENTLY 'DUMMY' DATA BY USING 'projectId' as the 'site-project' ID.
+export async function readTransmissionLine(projectId, signal) {
+  const url = `${API_BASE_URL}/projects/${projectId}/transmission-line/${projectId}`;
+  return await fetchJson(url, { signal });
+}

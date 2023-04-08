@@ -43,7 +43,8 @@ app.use("/projects/:project_id/modules", modulesEquipmentRouter);
 app.use("/projects/:project_id/mv-circuits", mvCircuitsRouter);
 app.use("/projects/:project_id/site-project", siteProject);
 app.use("/projects/:project_id/transmission-line", transmissionLine);
-app.use("/projects/:project_id/main-power-transformer", mainPowerTransformer);
+// app.use("/projects/:project_id/main-power-transformer", mainPowerTransformer);
+app.use("/projects", mainPowerTransformer);
 
 app.use(notFound);
 app.use(errorHandler);

@@ -9,11 +9,12 @@ function list(xfmr) {
 }
 
 /** reads the data (row) with the given 'xfmr_unique_id'. */
-function read(xfmr_unique_id) {
-  return knex("main_power_transformer")
-    .select("*")
-    .where({ xfmr_unique_id: xfmr_unique_id })
-    .first();
+function read(project_id, mpt_id) {
+  return knex("main_power_transformer").select("*").where({
+    project_id: project_id,
+    mpt_id: mpt_id,
+  });
+  // .first();
 }
 
 /** creates a new equipment (row) */

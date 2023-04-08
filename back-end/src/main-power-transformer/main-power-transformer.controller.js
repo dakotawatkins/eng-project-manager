@@ -5,12 +5,12 @@ const asyncErrorBoundary = require("../errors/asyncErrorBoundary");
 
 /** uses read() to return the data with the given equipment id in the request params */
 async function validateXfmrUniqueId(request, response, next) {
-  const { xfmr_unique_id } = request.params;
-  const xfmr = await service.read(xfmr_unique_id);
+  const { project_id, mpt_id } = request.params;
+  const xfmr = await service.read(project_id, mpt_id);
   if (!xfmr) {
     return next({
       status: 404,
-      message: `xfmr unique id ${xfmr_unique_id} does not exist`,
+      message: `xfmr unique id ${mpt_id} does not exist`,
     });
   }
   response.locals.xfmr = xfmr;
@@ -47,8 +47,8 @@ async function edit(request, response) {
 
 /** lists xfmr */
 async function list(request, response) {
-  const xfmr_unique_id = request.query.xfmr_unique_id;
-  const xfmr = await service.list(xfmr_unique_id);
+  const mpt_id = request.query.mpt_id;
+  const xfmr = await service.list(mpt_id);
   response.json({ data: xfmr });
 }
 
