@@ -17,7 +17,7 @@ router
   .all(methodNotAllowed);
 
 router
-  .route("/")
+  .route("/:project_id/hv")
   .get(controller.list)
   .post(controller.create)
   .all(methodNotAllowed);

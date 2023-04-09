@@ -38,7 +38,8 @@ app.use("/", router);
 
 app.use("/projects", projectsRouter);
 app.use("/equipment", equipmentCatalogRouter);
-app.use("/projects/:project_id/hv", hvEquipmentRouter);
+// app.use("/projects/:project_id/hv", hvEquipmentRouter);
+app.use("/projects", hvEquipmentRouter);
 app.use("/projects/:project_id/modules", modulesEquipmentRouter);
 app.use("/projects/:project_id/mv-circuits", mvCircuitsRouter);
 app.use("/projects/:project_id/site-project", siteProject);

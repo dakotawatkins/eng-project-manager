@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import { listTransmissionLine } from "../utils/api";
+import { listTransmissionLine, listHv } from "../utils/api";
 import DirectNavToProject from "../menus/DirectNavToProject";
 import TabStudies from "../menus/TabStudies";
 import TransmissionLine from "../studyComponents/TransmissionLine";
@@ -25,10 +25,13 @@ export default function StudyHV() {
   //     loadTransmissionLine(projectId);
   //   }, [projectId]);
 
+  // THIS IS MESSY CODE = THIS NO LONGER ONLY LOADS FOR TRANSMISSION DATA,
+  // BUT ALL HV EQUIPMENT INFO. THIS UNORGANIZED CODE NOW TRICKLES ALL
+  // THE WAY DOWN THROUGH THE COMPONENT.
   function loadTransmissionLine(projectId) {
     setError(null);
     const abortController = new AbortController();
-    listTransmissionLine(projectId, abortController.signal)
+    listHv(projectId, abortController.signal)
       .then(setTransmissionLine)
       .catch(setError);
     return () => abortController.abort();

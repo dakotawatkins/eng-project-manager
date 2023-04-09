@@ -40,11 +40,11 @@ background-color:lightgray;
 display: flex;
 flex-direction: column;
 align-items: center;
-max-width: 275px;
 min-width: fit-content;
 height: 100dvh;
 position: relative;
 padding: 8px;
+margin-right: 20px;
 border-top-right-radius: 10px;
 /* margin: 2px; */
 /* left: 0; */
@@ -116,52 +116,49 @@ font-weight: 500;
 text-decoration: underline;
 }
 
-.proj-navbar {
-background-color:aliceblue;
-width: 250px;
+
+
+
+
+.proj-list-left-2 {
 position: absolute;
-height: 92vh;
-left: 0;
-bottom: 0;
-border: solid;
-border-width: 0.125px;
-border-color: rgb(161, 161, 161);
-border-left: none;
+background-color:lightgray;
+align-items: center;
+width: 275px;
+height: 220dvh;
+padding: 8px;
+margin-right: 20px;
+border-top-right-radius: 10px;
+text-align: left;
+/* padding-left: 15px; */
 }
 
 .proj-tabs {
 transform: rotate(90deg);
-display: flex;
-position: absolute;
-left: 95px;
-top: 11em;
-/* background-color: blue; */
-height: auto;
-justify-content: space-between;
-width: 335px;
+position: relative;
+left: 151px;
+top: 125px;
 }
 
-.tab {
-background-color: rgb(186, 224, 232);
-width: 65px;
-text-align: center;
-border: solid;
-border-width: .125px;
-border-color: rgb(161, 161, 161);
-cursor: pointer;
-border-top-right-radius: 10px;
-border-top-left-radius: 10px;
+.proj-tabs button {
+border-top-right-radius: 15px;
+border-top-left-radius: 15px;
 border-bottom: none;
+margin-right: 1px;
 }
 
-.active-tab {
-background-color:aliceblue;
+.proj-disp {
+margin-left: 300px;
+padding-left: 30px;
+padding-right: 30px;
 }
 
-.none-active-tab {
-background-color: rgb(186, 224, 232);
+.proj-btn a {
+text-decoration: none;
+color: black;
 }
 
-.equip-cat {
-margin: 50px;
+.proj-stud {
+position: absolute;
+top: 8px;
 }

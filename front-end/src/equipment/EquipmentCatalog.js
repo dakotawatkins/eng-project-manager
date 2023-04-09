@@ -35,12 +35,11 @@ function EquipmentCatalog() {
   };
 
   return (
-    <>
-      <h1>Equipment Catalog</h1>
-
-      <table className="table text-wrap text-center table-hover">
-        <thead className="thead-dark">
-          <tr className="text-center">
+    <div className="container">
+      <h2>Equipment Catalog</h2>
+      <table className="table table-bordered table-hover">
+        <thead className="">
+          <tr className="">
             <th scope="col">ID</th>
             <th scope="col">RRC #</th>
             <th scope="col">RRC Description</th>
@@ -52,7 +51,7 @@ function EquipmentCatalog() {
         </thead>
         <tbody>{equipmentCatalogJSX()}</tbody>
       </table>
-    </>
+    </div>
   );
 }
 

@@ -17,22 +17,15 @@ export default function DirectNavToProject() {
   }, []);
 
   const list = projects.map((project) => (
-    <div key={project.project_id}>
-      <Link to={`/projects/${project.project_id}`} className="proj-btn">
-        {project.project_name}
-      </Link>
-    </div>
+    <button key={project.project_id} className="proj-btn">
+      <Link to={`/projects/${project.project_id}`}>{project.project_name}</Link>
+    </button>
   ));
 
   return (
-    <div className="test-container">
-      <div className="proj-list-left">
-        <h4>PROJECTS</h4>
-        {list}
-      </div>
-      {/* <div className="proj-list-left">
-        <h4>STUDIES - on click this will display a list of the studies</h4>
-      </div> */}
+    <div className="flex text-center">
+      <h4>PROJECTS</h4>
+      {list}
     </div>
   );
 }

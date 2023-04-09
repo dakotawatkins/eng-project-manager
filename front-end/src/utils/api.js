@@ -3,7 +3,8 @@
  * The default values is overridden by the `API_BASE_URL` environment variable.
  */
 const API_BASE_URL =
-  process.env.REACT_APP_API_BASE_URL || "http://localhost:5001";
+  // process.env.REACT_APP_API_BASE_URL || "http://localhost:5001";
+  "http://localhost:5001";
 
 /**
  * Defines the default headers for these functions to work with `json-server`
@@ -99,5 +100,23 @@ export async function listTransmissionLine(projectId, signal) {
 // THIS IS CURRENTLY 'DUMMY' DATA BY USING 'projectId' as the 'site-project' ID.
 export async function readTransmissionLine(projectId, signal) {
   const url = `${API_BASE_URL}/projects/${projectId}/transmission-line/${projectId}`;
+  return await fetchJson(url, { signal });
+}
+
+// Retrieves the project site info with the specified `projectId`
+// THE URL OF THIS SHOULD GET LOOKED AT FOR BOTH THIS FUNCTION AND THE BACKEND ROUTE
+// THIS IS CURRENTLY 'DUMMY' DATA BY USING 'projectId' as the 'site-project' ID.
+export async function listHv(projectId, signal) {
+  const url = `${API_BASE_URL}/projects/${projectId}/hv`;
+  return await fetchJson(url, { signal });
+}
+
+export async function listMvCircuits(projectId, signal) {
+  const url = `${API_BASE_URL}/projects/${projectId}/mv-circuits`;
+  return await fetchJson(url, { signal });
+}
+
+export async function listModules(projectId, signal) {
+  const url = `${API_BASE_URL}/projects/${projectId}/modules`;
   return await fetchJson(url, { signal });
 }
