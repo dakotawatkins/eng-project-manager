@@ -61,6 +61,8 @@ function Project() {
           >
             Studies
           </button>
+
+          <button className={`${"tab"}`}>ACAD</button>
         </div>
         <div className="proj-stud">
           {activeTab === "Tab1" && <DirectNavToProject />}

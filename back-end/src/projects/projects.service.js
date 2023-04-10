@@ -3,7 +3,11 @@ const knex = require("../db/connection");
 
 /** lists all projects in asc order. */
 function list(project) {
-  return knex("project_info").select("*").orderBy("project_id", "asc");
+  return knex("project_info")
+    .join("clients", "project_info.client_id", "clients.client_id")
+    .join("owners", "project_info.owner_id", "owners.owner_id")
+    .select("*")
+    .orderBy("project_id", "asc");
 }
 
 /** reads the data (row) with the given 'project_id'. */

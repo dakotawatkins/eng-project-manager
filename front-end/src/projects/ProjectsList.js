@@ -23,7 +23,7 @@ export default function ProjectList() {
   return (
     <div className="test-container">
       <div className="proj-list-left">
-        <h4>PROJECTS</h4>
+        <h4>Projects</h4>
         {projects.map((project) => (
           <button
             key={project.project_id}
@@ -37,12 +37,42 @@ export default function ProjectList() {
             {project.project_name}
           </button>
         ))}
+        <button className="proj-btn">OC Solar</button>
+        <button className="proj-btn">Tri-Tip Solar</button>
+        <button className="proj-btn">River Crest Solar</button>
+        <button className="proj-btn">Dakota's Test Solar</button>
+        <button className="proj-btn">Example Solar</button>
+        <button className="proj-btn">Another Ex Solar</button>
+        <button className="proj-btn">Extremely Long Text Solar</button>
+        <button className="proj-btn">Mount Saint Hellens Solar Co.</button>
+        <button className="proj-btn">Zach's Solar</button>
+        <button className="proj-btn">Urban Solar LLC</button>
+        <button className="proj-btn">Bed'N Breakfast Solar</button>
+        <button className="proj-btn">Cannon Beach Solar</button>
+        <button className="proj-btn">Indian Heaven Solar</button>
+        <button className="proj-btn">Paradise Park LLC</button>
+        <button className="proj-btn">Test Solar LLC</button>
+        <button className="proj-btn">Example 2 Solar</button>
+        <button className="proj-btn">Angel's Rest Solar</button>
+        <button className="proj-btn">Example 3 Solar</button>
+        <button className="proj-btn">Example 4 Solar</button>
+        <button className="proj-btn">Example 5 Solar</button>
       </div>
       <div className="proj-list-right">
         {activeProject && (
           <div className="proj-disp-container">
+            <button
+              type="button"
+              class="btn-close dw-close"
+              aria-label="Close"
+              onClick={(e) => {
+                e.preventDefault();
+                setActiveProject("");
+                console.log(activeProject, "project closed");
+              }}
+            ></button>
             <h3>{activeProject.project_name.toUpperCase()}</h3>
-            <a
+            {/* <a
               className="close-btn"
               onClick={(e) => {
                 e.preventDefault();
@@ -51,32 +81,73 @@ export default function ProjectList() {
               }}
             >
               Close
-            </a>
+            </a> */}
+
             <div className="site-map">
               {activeProject.project_id === 1 && <img src={site_map_1} />}
               {activeProject.project_id === 2 && <img src={site_map_2} />}
               {activeProject.project_id === 3 && <img src={site_map_3} />}
             </div>
-            <Link className="" to={`/projects/${activeProject.project_id}`}>
+            <Link
+              className="dw-links"
+              to={`/projects/${activeProject.project_id}`}
+            >
               To Project Home Page
             </Link>
             <div className="proj-gen-info">
-              <div>
-                <span>Project ID: </span>
+              <table className="table text-wrap table-hover">
+                <thead className="thead-dark">
+                  <tr className="">
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td className="text-start">Project ID</td>
+                    <td className="text-end">000{activeProject.project_id}</td>
+                  </tr>
+                  <tr>
+                    <td className="text-start">Project Code</td>
+                    <td className="text-end">{activeProject.project_code}</td>
+                  </tr>
+                  <tr>
+                    <td className="text-start">Project Name</td>
+                    <td className="text-end">{activeProject.project_name}</td>
+                  </tr>
+                  {/* <tr>
+                    <td className="text-start">Client ID</td>
+                    <td className="text-end">000{activeProject.client_id}</td>
+                  </tr> */}
+                  <tr>
+                    <td className="text-start">Client Name</td>
+                    <td className="text-end">{activeProject.client_name}</td>
+                  </tr>
+                  {/* <tr>
+                    <td className="text-start">Owner ID</td>
+                    <td className="text-end">000{activeProject.owner_id}</td>
+                  </tr> */}
+                  <tr>
+                    <td className="text-start">Owner Name</td>
+                    <td className="text-end">{activeProject.owner_name}</td>
+                  </tr>
+                </tbody>
+              </table>
+              {/* <div>
+                <span>Project ID </span>
                 {activeProject.project_id}
               </div>
               <div>
-                <span>Project Code: </span> {activeProject.project_code}
+                <span>Project Code </span> {activeProject.project_code}
               </div>
               <div>
-                <span>Project Name: </span> {activeProject.project_name}
+                <span>Project Name </span> {activeProject.project_name}
               </div>
               <div>
-                <span>Project Client ID: </span> {activeProject.client_id}
+                <span>Project Client ID </span> {activeProject.client_id}
               </div>
               <div>
-                <span>Project Owner ID: </span> {activeProject.owner_id}
-              </div>
+                <span>Project Owner ID </span> {activeProject.owner_id}
+              </div> */}
             </div>
           </div>
         )}
