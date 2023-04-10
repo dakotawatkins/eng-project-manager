@@ -37,7 +37,7 @@ function EquipmentCatalog() {
   return (
     <div className="container">
       <h2>Equipment Catalog</h2>
-      <table className="table table-bordered table-hover">
+      <table className="table overflow-scroll table-bordered table-hover">
         <thead className="">
           <tr className="">
             <th scope="col">ID</th>
@@ -49,7 +49,7 @@ function EquipmentCatalog() {
             <th scope="col">Manufacturer #</th>
           </tr>
         </thead>
-        <tbody>{equipmentCatalogJSX()}</tbody>
+        <tbody className="text-nowrap">{equipmentCatalogJSX()}</tbody>
       </table>
     </div>
   );

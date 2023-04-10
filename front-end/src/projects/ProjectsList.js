@@ -44,7 +44,7 @@ export default function ProjectList() {
         <button className="proj-btn">Example Solar</button>
         <button className="proj-btn">Another Ex Solar</button>
         <button className="proj-btn">Extremely Long Text Solar</button>
-        <button className="proj-btn">Mount Saint Hellens Solar Co.</button>
+        <button className="proj-btn">Mount Saint Hellens Solar</button>
         <button className="proj-btn">Zach's Solar</button>
         <button className="proj-btn">Urban Solar LLC</button>
         <button className="proj-btn">Bed'N Breakfast Solar</button>

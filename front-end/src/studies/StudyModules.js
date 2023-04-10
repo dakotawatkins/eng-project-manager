@@ -37,47 +37,50 @@ export default function StudyModules() {
 
   return (
     <div>
-      <div className="proj-tabs">
-        <button
-          className={`${"tab"}`}
-          onClick={(e) => {
-            e.preventDefault();
-            setActiveTab("Tab1");
-            console.log(activeTab, "Tab1");
-          }}
-        >
-          Projects
-        </button>
+      <div className="proj-list-left-2">
+        <div className="proj-tabs">
+          <button
+            className={`${"tab"}`}
+            onClick={(e) => {
+              e.preventDefault();
+              setActiveTab("Tab1");
+              console.log(activeTab, "Tab1");
+            }}
+          >
+            Projects
+          </button>
 
-        <button
-          className={`${"tab"}`}
-          onClick={(e) => {
-            e.preventDefault();
-            setActiveTab("Tab2");
-            console.log(activeTab, "Tab2");
-          }}
-        >
-          Studies
-        </button>
+          <button
+            className={`${"tab"}`}
+            onClick={(e) => {
+              e.preventDefault();
+              setActiveTab("Tab2");
+              console.log(activeTab, "Tab2");
+            }}
+          >
+            Studies
+          </button>
+          <button className={`${"tab"}`}>ACAD</button>
+          <button className={`${"tab"}`}>BOM's</button>
+        </div>
+
+        <div className="proj-stud">
+          {activeTab === "Tab1" && (
+            <div>
+              <DirectNavToProject />
+            </div>
+          )}
+
+          {activeTab === "Tab2" && (
+            <div>
+              <TabStudies project_id={projectId} />
+            </div>
+          )}
+        </div>
       </div>
 
-      <div>
-        {activeTab === "Tab1" && (
-          <div>
-            <DirectNavToProject />
-          </div>
-        )}
-      </div>
-
-      <div>
-        {activeTab === "Tab2" && (
-          <div>
-            <TabStudies project_id={projectId} />
-          </div>
-        )}
-      </div>
-
-      <div className="test-container">
+      <div className="proj-disp overflow-scroll">
+        <h1>Modules</h1>
         <table className="table text-wrap text-center table-hover">
           <thead className="thead-dark">
             <tr className="text-center">
@@ -115,7 +118,7 @@ export default function StudyModules() {
               <th className="">Modeling Buffer</th>
             </tr>
           </thead>
-          <tbody>{modulesJSX()}</tbody>
+          <tbody className="text-nowrap">{modulesJSX()}</tbody>
         </table>
       </div>
       {/* <div>{console.log(modules[0])}</div> */}

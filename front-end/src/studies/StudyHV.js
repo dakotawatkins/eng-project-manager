@@ -57,48 +57,51 @@ export default function StudyHV() {
 
   return (
     <div>
-      <div className="proj-tabs">
-        <button
-          className={`${"tab"}`}
-          onClick={(e) => {
-            e.preventDefault();
-            setActiveTab("Tab1");
-            console.log(activeTab, "Tab1");
-          }}
-        >
-          Projects
-        </button>
+      <div className="proj-list-left-2">
+        <div className="proj-tabs">
+          <button
+            className={`${"tab"}`}
+            onClick={(e) => {
+              e.preventDefault();
+              setActiveTab("Tab1");
+              console.log(activeTab, "Tab1");
+            }}
+          >
+            Projects
+          </button>
 
-        <button
-          className={`${"tab"}`}
-          onClick={(e) => {
-            e.preventDefault();
-            setActiveTab("Tab2");
-            console.log(activeTab, "Tab2");
-          }}
-        >
-          Studies
-        </button>
+          <button
+            className={`${"tab"}`}
+            onClick={(e) => {
+              e.preventDefault();
+              setActiveTab("Tab2");
+              console.log(activeTab, "Tab2");
+            }}
+          >
+            Studies
+          </button>
+          <button className={`${"tab"}`}>ACAD</button>
+          <button className={`${"tab"}`}>BOM's</button>
+        </div>
+
+        <div className="proj-stud">
+          {activeTab === "Tab1" && (
+            <div>
+              <DirectNavToProject />
+            </div>
+          )}
+
+          {activeTab === "Tab2" && (
+            <div>
+              <TabStudies project_id={projectId} />
+            </div>
+          )}
+        </div>
       </div>
 
-      <div>
-        {activeTab === "Tab1" && (
-          <div>
-            <DirectNavToProject />
-          </div>
-        )}
-      </div>
-
-      <div>
-        {activeTab === "Tab2" && (
-          <div>
-            <TabStudies project_id={projectId} />
-          </div>
-        )}
-      </div>
-
-      <div className="test-container">
-        <table className="table text-wrap text-center table-hover">
+      <div className="proj-disp overflow-scroll">
+        <h1>High Voltage</h1>
+        <table className="table text-center table-hover">
           <thead className="thead-dark">
             <tr className="text-center">
               <th className="">Transmission Line ID</th>
@@ -118,7 +121,7 @@ export default function StudyHV() {
               <th className="">Client Notes</th>
             </tr>
           </thead>
-          <tbody>{transmissionLineJSX()}</tbody>
+          <tbody className="text-nowrap">{transmissionLineJSX()}</tbody>
         </table>
       </div>
     </div>
