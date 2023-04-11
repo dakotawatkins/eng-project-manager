@@ -63,7 +63,7 @@ function Project() {
           </button>
 
           <button className={`${"tab"}`}>ACAD</button>
-          <button className={`${"tab"}`}>some</button>
+          <button className={`${"tab"}`}>BOM's</button>
         </div>
         <div className="proj-stud">
           {activeTab === "Tab1" && <DirectNavToProject />}
