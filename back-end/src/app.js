@@ -16,9 +16,9 @@ const equipmentCatalogRouter = require("./equipment/equipment-catalog.router");
 const hvEquipmentRouter = require("./hv-equipment/hv-equipment.router");
 const modulesEquipmentRouter = require("./modules/modules.router");
 const mvCircuitsRouter = require("./mv-circuits/mv-circuits.router");
-const siteProject = require("./site-project/site-project.router");
-const transmissionLine = require("./transmission-line/transmission-line.router");
-const mainPowerTransformer = require("./main-power-transformer/main-power-transformer.router");
+const siteProjectRouter = require("./site-project/site-project.router");
+const transmissionLineRouter = require("./transmission-line/transmission-line.router");
+const mainPowerTransformerRouter = require("./main-power-transformer/main-power-transformer.router");
 
 const app = express();
 
@@ -34,18 +34,17 @@ router.get("/", cors(), (req, res) => {
   });
 });
 
-app.use("/", router);
 
+// 'app.use' calls on a url (ex: "/projects"), then the '.router' file to finish the route ('projectsRouter').
+app.use("/", router);
 app.use("/projects", projectsRouter);
 app.use("/equipment", equipmentCatalogRouter);
-// app.use("/projects/:project_id/hv", hvEquipmentRouter);
 app.use("/projects", hvEquipmentRouter);
-app.use("/projects/:project_id/modules", modulesEquipmentRouter);
-app.use("/projects/:project_id/mv-circuits", mvCircuitsRouter);
-app.use("/projects/:project_id/site-project", siteProject);
-app.use("/projects/:project_id/transmission-line", transmissionLine);
-// app.use("/projects/:project_id/main-power-transformer", mainPowerTransformer);
-app.use("/projects", mainPowerTransformer);
+app.use("/projects", modulesEquipmentRouter);
+app.use("/projects", mvCircuitsRouter);
+app.use("/projects/:project_id/site-project", siteProjectRouter);
+app.use("/projects", transmissionLineRouter);
+app.use("/projects", mainPowerTransformerRouter);
 
 app.use(notFound);
 app.use(errorHandler);

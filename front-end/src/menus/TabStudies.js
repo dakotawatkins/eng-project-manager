@@ -6,36 +6,38 @@ export default function TabStudies({ project_id }) {
 
   return (
     <div className="flex text-center">
-      <h4>STUDIES</h4>
+      <h4>IO Sheets</h4>
       <div>
         <button className="proj-btn">
-          <Link to={`/projects/${project_id}/hv`}>High Voltage</Link>
+          <Link to={`/projects/${project_id}/hv`}>I - High Voltage</Link>
         </button>
+        
         <button className="proj-btn">
-          <Link to={`/projects/${project_id}/mv-circuits`}>MV Circuits</Link>
+          <Link to={`/projects/${project_id}/modules`}>I - Modules</Link>
         </button>
+        <button className="proj-btn">I - Conventions</button>
+        <button className="proj-btn">I - Codes / Standards</button>
+        <button className="proj-btn">I - MV Cable</button>
+        <button className="proj-btn">I - PCU's</button>
+        <button className="proj-btn">I - PV Wire</button>
+        <button className="proj-btn">I - Racking</button>
+        <button className="proj-btn">S - Amp</button>
+        <button className="proj-btn">S - SC (Mv)</button>
+        <button className="proj-btn">S - SC (GND)</button>
+        <button className="proj-btn">S - RP</button>
+        <button className="proj-btn">S - PV System</button>
+        <button className="proj-btn">S - Equiv Z</button>
+
         <button className="proj-btn">
-          <Link to={`/projects/${project_id}/modules`}>Modules</Link>
+          <Link to={`/projects/${project_id}/mv-circuits`}>D - MV Circuits</Link>
         </button>
-        <button className="proj-btn">Conventions</button>
-        <button className="proj-btn">Codes / Standards</button>
-        <button className="proj-btn">MV Cable</button>
-        <button className="proj-btn">PCU's</button>
-        <button className="proj-btn">PV Wire</button>
-        <button className="proj-btn">Racking</button>
-        <button className="proj-btn">Amp</button>
-        <button className="proj-btn">SC (Mv)</button>
-        <button className="proj-btn">SC (GND)</button>
-        <button className="proj-btn">RP</button>
-        <button className="proj-btn">PV System</button>
-        <button className="proj-btn">Fiber Circuits</button>
-        <button className="proj-btn">Equiv Z</button>
-        <button className="proj-btn">DC Homeruns</button>
-        <button className="proj-btn">Motor Circuits</button>
-        <button className="proj-btn">DC String Wiring</button>
-        <button className="proj-btn">DC Trench</button>
-        <button className="proj-btn">DC Quantities</button>
-        <button className="proj-btn">Cab Loading</button>
+        <button className="proj-btn">D - Fiber Circuits</button>
+        <button className="proj-btn">D - DC Homeruns</button>
+        <button className="proj-btn">D - Motor Circuits</button>
+        <button className="proj-btn">D - DC String Wiring</button>
+        <button className="proj-btn">D - DC Trench</button>
+        <button className="proj-btn">D - DC Quantities</button>
+        <button className="proj-btn">D - Cab Loading</button>
       </div>
     </div>
   );

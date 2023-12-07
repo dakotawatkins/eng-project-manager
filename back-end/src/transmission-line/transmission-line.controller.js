@@ -5,8 +5,8 @@ const asyncErrorBoundary = require("../errors/asyncErrorBoundary");
 
 /** uses read() to return the data with the given equipment id in the request params */
 async function validateTransmissionLineUniqueId(request, response, next) {
-  const { transmission_line_unique_id } = request.params;
-  const transmissionLine = await service.read(transmission_line_unique_id);
+  const { transmission_line_unique_id, project_id } = request.params;
+  const transmissionLine = await service.read(transmission_line_unique_id, project_id);
   if (!transmissionLine) {
     return next({
       status: 404,
@@ -47,8 +47,10 @@ async function edit(request, response) {
 
 /** lists transmissionLine */
 async function list(request, response) {
-  const transmission_line_unique_id = request.query.transmission_line_unique_id;
-  const transmissionLine = await service.list(transmission_line_unique_id);
+  //'request.params' pulls 'project_id' from '.router' file where the url was built ("/:project_id/modules/:mod_id")
+  const transmissionLineUniqueId = request.params.transmission_line_unique_id;
+  const projectId = request.params.project_id;
+  const transmissionLine = await service.list(transmissionLineUniqueId, projectId);
   response.json({ data: transmissionLine });
 }
 

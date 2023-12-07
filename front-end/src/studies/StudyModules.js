@@ -38,8 +38,9 @@ export default function StudyModules() {
   return (
     <div>
       <div className="proj-list-left-2">
+      <DirectNavToProject />
         <div className="proj-tabs">
-          <button
+          {/* <button
             className={`${"tab"}`}
             onClick={(e) => {
               e.preventDefault();
@@ -48,7 +49,7 @@ export default function StudyModules() {
             }}
           >
             Projects
-          </button>
+          </button> */}
 
           <button
             className={`${"tab"}`}
@@ -58,29 +59,21 @@ export default function StudyModules() {
               console.log(activeTab, "Tab2");
             }}
           >
-            Studies
+            IO Sheets
           </button>
           <button className={`${"tab"}`}>ACAD</button>
           <button className={`${"tab"}`}>BOM's</button>
         </div>
 
         <div className="proj-stud">
-          {activeTab === "Tab1" && (
-            <div>
-              <DirectNavToProject />
-            </div>
-          )}
+          {/* {activeTab === "Tab1" && <DirectNavToProject /> } */}
 
-          {activeTab === "Tab2" && (
-            <div>
-              <TabStudies project_id={projectId} />
-            </div>
-          )}
+          {activeTab === "Tab2" && <TabStudies project_id={projectId} />}
         </div>
       </div>
 
       <div className="proj-disp overflow-scroll">
-        <h1>Modules</h1>
+        <h1>I - Modules</h1>
         <table className="table text-wrap text-center table-hover">
           <thead className="thead-dark">
             <tr className="text-center">

@@ -5,8 +5,8 @@ const asyncErrorBoundary = require("../errors/asyncErrorBoundary");
 
 /** uses read() to return the data with the given equipment id in the request params */
 async function validateMvUniqueId(request, response, next) {
-  const { mv_unique_id } = request.params;
-  const mvCircuit = await service.read(mv_unique_id);
+  const { mv_unique_id, project_id } = request.params;
+  const mvCircuit = await service.read(mv_unique_id, project_id);
   if (!mvCircuit) {
     return next({
       status: 404,
@@ -47,8 +47,10 @@ async function edit(request, response) {
 
 /** lists mvCircuit */
 async function list(request, response) {
-  const mv_unique_id = request.query.mv_unique_id;
-  const mvCircuit = await service.list(mv_unique_id);
+  //'request.params' pulls 'project_id' from '.router' file where the url was built ("/:project_id/modules/:mod_id")
+  const mvUniqueId = request.params.mv_unique_id;
+  const projectId = request.params.project_id;
+  const mvCircuit = await service.list(mvUniqueId, projectId);
   response.json({ data: mvCircuit });
 }
 

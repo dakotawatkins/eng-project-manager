@@ -2,15 +2,20 @@
 const knex = require("../db/connection");
 
 /** lists all hv spec columns in asc order. */
-function list(mvCircuits) {
-  return knex("mv_circuits").select("*").orderBy("mv_unique_id", "asc");
+function list(mvUniqueId, projectId) {
+  return knex("mv_circuits")
+    .select("*")
+    .where({project_id: projectId})
+    .orderBy("mv_unique_id", "asc");
 }
 
 /** reads the data (row) with the given 'mv_unique_id'. */
-function read(mv_unique_id) {
+function read(mv_unique_id, project_id) {
   return knex("mv_circuits")
     .select("*")
-    .where({ mv_unique_id: mv_unique_id })
+    .where({ 
+      project_id: project_id,
+      mv_unique_id: mv_unique_id })
     .first();
 }
 

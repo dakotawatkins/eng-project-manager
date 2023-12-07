@@ -2,17 +2,24 @@
 const knex = require("../db/connection");
 
 /** lists all hv spec columns in asc order. */
-function list(transmissionLine) {
+/* 
+  'projectId' is pulled from URL as 'request.params.project_id'. 
+  'list' selects all the data where the 'project_id' from the data is equal to 'projectId' (from the url) .
+*/
+function list(transmissionLineUniqueId, projectId) {
   return knex("transmission_line")
     .select("*")
+    .where({project_id: projectId})
     .orderBy("transmission_line_unique_id", "asc");
 }
 
 /** reads the data (row) with the given 'transmission_line_unique_id'. */
-function read(transmission_line_unique_id) {
+function read(transmission_line_unique_id, project_id) {
   return knex("transmission_line")
     .select("*")
-    .where({ transmission_line_unique_id: transmission_line_unique_id })
+    .where({ 
+      project_id: project_id,
+      transmission_line_unique_id: transmission_line_unique_id })
     .first();
 }
 

@@ -8,10 +8,12 @@ const router = require("express").Router();
 const controller = require("./hv-equipment.controller");
 const methodNotAllowed = require("../errors/methodNotAllowed");
 
-router.route("/:hv_id/status").put(controller.update).all(methodNotAllowed);
+// Building the URL and specifying route parameters (ex: :project_id), to be pulled in .controller (request.params...)
+
+router.route("/:project_id/hv/:hv_id/status").put(controller.update).all(methodNotAllowed);
 
 router
-  .route("/:hv_id")
+  .route("/:project_id/hv/:hv_id")
   .get(controller.read)
   .put(controller.edit)
   .all(methodNotAllowed);

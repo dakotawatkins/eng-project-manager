@@ -1,15 +1,27 @@
 //// Service.js file:  holds functions that make all the CRUD transactions for one table ////
 const knex = require("../db/connection");
 
+
 /** lists all hv spec columns in asc order from joined tables 'high_voltage' and 'transmission_line'.. */
-function list(hvEquip) {
+/* 
+  'projectId' is pulled from URL as 'request.params.project_id'. 
+  'list' selects all the data where the 'project_id' from the data is equal to 'projectId' (from the url) .
+*/
+function list(projectId) {
   return knex("high_voltage")
     .join(
       "transmission_line",
       "high_voltage.project_id",
       "transmission_line.project_id"
     )
-    .select("*")
+    // .join(
+    //   "main_power_transformer",
+    //   "high_voltage.project_id",
+    //   "main_power_transformer.project_id"
+    // )
+    // .select("high_voltage.*", "transmission_line.*", "main_power_transformer.*")
+    .select("high_voltage.*", "transmission_line.*")
+    .where({"high_voltage.project_id": projectId})
     .orderBy("hv_id", "asc");
 }
 

@@ -2,13 +2,23 @@
 const knex = require("../db/connection");
 
 /** lists all hv spec columns in asc order. */
-function list(modSpecs) {
-  return knex("modules").select("*").orderBy("mod_id", "asc");
+/* 
+  'projectId' is pulled from URL as 'request.params.project_id'. 
+  'list' selects all the data where the 'project_id' from the data is equal to 'projectId' (from the url) .
+*/
+function list(projectId) {
+  return knex("modules")
+    .select("*")
+    .where({project_id: projectId})
+    .orderBy("mod_id", "asc");
 }
 
 /** reads the data (row) with the given 'mod_id'. */
 function read(mod_id) {
-  return knex("modules").select("*").where({ mod_id: mod_id }).first();
+  return knex("modules")
+    .select("*")
+    .where({ mod_id: mod_id })
+    .first();
 }
 
 /** creates a new equipment (row) */

@@ -6,6 +6,7 @@ function EquipmentCatalogRow({ equipmentItem }) {
    *  each single reservation is mapped in 'equipmentCatalogJSX()' in 'EquipmentCatalog'
    *  to create a list of equipment.
    */
+
   return (
     <tr>
       <td className="">{equipmentItem.unique_equipment_id}</td>

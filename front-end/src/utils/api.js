@@ -120,3 +120,10 @@ export async function listModules(projectId, signal) {
   const url = `${API_BASE_URL}/projects/${projectId}/modules`;
   return await fetchJson(url, { signal });
 }
+
+// Posts a 'newEquipment' (object) item to the equipments page 
+export async function createEquipment(newEquipment, signal) {
+  const url = `${API_BASE_URL}/equipment`;
+  const body = JSON.stringify({ data: newEquipment });
+  return await fetchJson(url, { headers, signal, method: "POST", body }, []);
+};

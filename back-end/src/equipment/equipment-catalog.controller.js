@@ -32,7 +32,6 @@ async function update(request, response) {
     response.locals.equipment.rrc_equipment_id,
     request.body.data.status
   );
-
   response.status(200).json({ data: { status: request.body.data.status } });
 }
 
@@ -47,8 +46,11 @@ async function edit(request, response) {
 
 /** lists equipment */
 async function list(request, response) {
-  const rrc_equipment_id = request.query.rrc_equipment_id;
-  const equipment = await service.list(rrc_equipment_id);
+  //'request.params' pulls 'rrc_equipment_id' from '.router' file where the url was built ("/:rrc_equipment_id")
+  //rrcEquipmentId currently isn't doing anything inside this function because there are no params set when the URL is built in .router
+  ///:rrc_equipment_id" doesn't exist for the 'list' router.
+  const rrcEquipmentId = request.params.rrc_equipment_id;
+  const equipment = await service.list(rrcEquipmentId);
   response.json({ data: equipment });
 }
 

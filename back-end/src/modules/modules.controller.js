@@ -47,8 +47,9 @@ async function edit(request, response) {
 
 /** lists modEquipment */
 async function list(request, response) {
-  const mod_id = request.query.mod_id;
-  const modEquipment = await service.list(mod_id);
+  //'request.params' pulls 'project_id' from '.router' file where the url was built ("/:project_id/modules/:mod_id")
+  const projectId = request.params.project_id;
+  const modEquipment = await service.list(projectId);
   response.json({ data: modEquipment });
 }
 

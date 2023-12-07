@@ -32,7 +32,6 @@ async function update(request, response) {
     response.locals.xfmr.xfmr_unique_id,
     request.body.data.status
   );
-
   response.status(200).json({ data: { status: request.body.data.status } });
 }
 
@@ -47,8 +46,10 @@ async function edit(request, response) {
 
 /** lists xfmr */
 async function list(request, response) {
-  const mpt_id = request.query.mpt_id;
-  const xfmr = await service.list(mpt_id);
+  //'request.params' pulls 'project_id' from '.router' file where the url was built ("/:project_id/modules/:mod_id")
+  const mptId = request.params.mpt_id;
+  const projectId = request.params.project_id;
+  const xfmr = await service.list(mptId, projectId);
   response.json({ data: xfmr });
 }
 

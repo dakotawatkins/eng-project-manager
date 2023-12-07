@@ -7,6 +7,7 @@ import { NavBarTop } from "./menus/NavBarTop";
 import StudyHV from "./studies/StudyHV";
 import StudyMvCircuits from "./studies/StudyMvCircuits";
 import StudyModules from "./studies/StudyModules";
+
 /**
  * Defines the root application component.
  * @returns {JSX.Element}

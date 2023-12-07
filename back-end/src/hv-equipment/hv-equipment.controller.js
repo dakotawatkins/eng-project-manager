@@ -47,8 +47,10 @@ async function edit(request, response) {
 
 /** lists hvEquipment */
 async function list(request, response) {
-  const hv_id = request.query.hv_id;
-  const hvEquipment = await service.list(hv_id);
+  // const hvId = request.params.hv_id;
+  //'request.params' pulls 'project_id' and 'hv_id' from '.router' file where the url was built ("/:project_id/modules/:hv_id")
+  const projectId = request.params.project_id;
+  const hvEquipment = await service.list(projectId);
   response.json({ data: hvEquipment });
 }
 

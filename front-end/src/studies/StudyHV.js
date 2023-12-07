@@ -31,6 +31,7 @@ export default function StudyHV() {
   function loadTransmissionLine(projectId) {
     setError(null);
     const abortController = new AbortController();
+    // listTransmissionLine(projectId, abortController.signal)
     listHv(projectId, abortController.signal)
       .then(setTransmissionLine)
       .catch(setError);
@@ -43,23 +44,24 @@ export default function StudyHV() {
 
   /** iterates each transmissionLineJSX and returns a 'TransmissionLine' */
   const transmissionLineJSX = () => {
-    return transmissionLine.map(
-      (tLine) =>
-        tLine.project_id == projectId && (
-          <TransmissionLine
-            key={tLine.transmission_line_unique_id}
-            tLine={tLine}
-            projectId={projectId}
-          />
-        )
+    return transmissionLine.map((tLine) =>
+        console.log('tLine:', tLine)
+        // tLine.project_id == projectId && (
+        //   <TransmissionLine
+        //     key={tLine.transmission_line_unique_id}
+        //     tLine={tLine}
+        //     projectId={projectId}
+        //   />
+        // )
     );
   };
 
   return (
     <div>
       <div className="proj-list-left-2">
+      <DirectNavToProject />
         <div className="proj-tabs">
-          <button
+          {/* <button
             className={`${"tab"}`}
             onClick={(e) => {
               e.preventDefault();
@@ -68,7 +70,7 @@ export default function StudyHV() {
             }}
           >
             Projects
-          </button>
+          </button> */}
 
           <button
             className={`${"tab"}`}
@@ -78,29 +80,21 @@ export default function StudyHV() {
               console.log(activeTab, "Tab2");
             }}
           >
-            Studies
+            IO Sheets
           </button>
           <button className={`${"tab"}`}>ACAD</button>
           <button className={`${"tab"}`}>BOM's</button>
         </div>
 
         <div className="proj-stud">
-          {activeTab === "Tab1" && (
-            <div>
-              <DirectNavToProject />
-            </div>
-          )}
+          {/* {activeTab === "Tab1" && <DirectNavToProject /> } */}
 
-          {activeTab === "Tab2" && (
-            <div>
-              <TabStudies project_id={projectId} />
-            </div>
-          )}
+          {activeTab === "Tab2" && <TabStudies project_id={projectId} />}
         </div>
       </div>
 
       <div className="proj-disp overflow-scroll">
-        <h1>High Voltage</h1>
+        <h1>I - High Voltage</h1>
         <table className="table text-center table-hover">
           <thead className="thead-dark">
             <tr className="text-center">

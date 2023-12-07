@@ -5,6 +5,25 @@ import site_map_1 from "../assets/images/site_map_1.png";
 import site_map_2 from "../assets/images/site_map_2.png";
 import site_map_3 from "../assets/images/site_map_3.png";
 
+// Testing for MUI lists
+// import * as React from 'react';
+import Box from '@mui/material/Box';
+import Drawer from '@mui/material/Drawer';
+import AppBar from '@mui/material/AppBar';
+import CssBaseline from '@mui/material/CssBaseline';
+import Toolbar from '@mui/material/Toolbar';
+import List from '@mui/material/List';
+import Typography from '@mui/material/Typography';
+import Divider from '@mui/material/Divider';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemText from '@mui/material/ListItemText';
+
+import TextField from '@mui/material/TextField';
+import Autocomplete, { createFilterOptions } from '@mui/material/Autocomplete';
+
+
+
 export default function ProjectList() {
   const [projects, setProjects] = useState([]);
   const [activeProject, setActiveProject] = useState("");
@@ -20,48 +39,52 @@ export default function ProjectList() {
     retrieveProjects();
   }, []);
 
+
+  // when a project is selected, it will show up as selected.
+  const [selectedIndex, setSelectedIndex] = React.useState(1);
+  const handleListItemClick = (event, index) => {
+    setSelectedIndex(index);
+  };
+
+  const defaultProps = {
+    options: projects,
+    // getOptionLabel: (option) => option.project_name
+    getOptionLabel: (option) => option.project_name || ""
+  };
+
+  const filterOptions = createFilterOptions({
+    matchFrom: 'start',
+    stringify: (option) => option.project_name,
+  });
+
+
   return (
     <div className="test-container">
       <div className="proj-list-left">
-        <h4>Projects</h4>
-        {projects.map((project) => (
-          <button
-            key={project.project_id}
-            className="proj-btn"
-            onClick={(e) => {
-              e.preventDefault();
-              setActiveProject(project);
-              console.log(activeProject, "active project");
-            }}
-          >
-            {project.project_name}
-          </button>
-        ))}
-        <button className="proj-btn">OC Solar</button>
-        <button className="proj-btn">Tri-Tip Solar</button>
-        <button className="proj-btn">River Crest Solar</button>
-        <button className="proj-btn">Dakota's Test Solar</button>
-        <button className="proj-btn">Example Solar</button>
-        <button className="proj-btn">Another Ex Solar</button>
-        <button className="proj-btn">Extremely Long Text Solar</button>
-        <button className="proj-btn">Mount Saint Hellens Solar</button>
-        <button className="proj-btn">Zach's Solar</button>
-        <button className="proj-btn">Urban Solar LLC</button>
-        <button className="proj-btn">Bed'N Breakfast Solar</button>
-        <button className="proj-btn">Cannon Beach Solar</button>
-        <button className="proj-btn">Indian Heaven Solar</button>
-        <button className="proj-btn">Paradise Park LLC</button>
-        <button className="proj-btn">Test Solar LLC</button>
-        <button className="proj-btn">Example 2 Solar</button>
-        <button className="proj-btn">Angel's Rest Solar</button>
-        <button className="proj-btn">Example 3 Solar</button>
-        <button className="proj-btn">Example 4 Solar</button>
-        <button className="proj-btn">Example 5 Solar</button>
+        <div className="project-select">
+          <Box sx={{ overflow: 'auto' }}>
+              <Autocomplete
+                  {...defaultProps}
+                  disablePortal
+                  // id="filter-demo"
+                  // options={projects}
+                  // getOptionLabel={(option) => option.project_name}
+                  filterOptions={filterOptions}
+                  sx={{ width: 300 }}
+                  renderInput={(params) => <TextField {...params} label="Project" />}
+                  value={activeProject}
+                  onChange={(event, newValue) => {
+                    setActiveProject(newValue)
+                  }}
+                />           
+          </Box>
+        </div>
       </div>
+
       <div className="proj-list-right">
         {activeProject && (
           <div className="proj-disp-container">
-            <button
+            {/* <button
               type="button"
               class="btn-close dw-close"
               aria-label="Close"
@@ -70,19 +93,10 @@ export default function ProjectList() {
                 setActiveProject("");
                 console.log(activeProject, "project closed");
               }}
-            ></button>
-            <h3>{activeProject.project_name.toUpperCase()}</h3>
-            {/* <a
-              className="close-btn"
-              onClick={(e) => {
-                e.preventDefault();
-                setActiveProject("");
-                console.log(activeProject, "project closed");
-              }}
             >
-              Close
-            </a> */}
 
+            </button> */}
+            <h3>{activeProject.project_name.toUpperCase()}</h3>
             <div className="site-map">
               {activeProject.project_id === 1 && <img src={site_map_1} />}
               {activeProject.project_id === 2 && <img src={site_map_2} />}
@@ -132,22 +146,7 @@ export default function ProjectList() {
                   </tr>
                 </tbody>
               </table>
-              {/* <div>
-                <span>Project ID </span>
-                {activeProject.project_id}
-              </div>
-              <div>
-                <span>Project Code </span> {activeProject.project_code}
-              </div>
-              <div>
-                <span>Project Name </span> {activeProject.project_name}
-              </div>
-              <div>
-                <span>Project Client ID </span> {activeProject.client_id}
-              </div>
-              <div>
-                <span>Project Owner ID </span> {activeProject.owner_id}
-              </div> */}
+             
             </div>
           </div>
         )}
@@ -155,49 +154,3 @@ export default function ProjectList() {
     </div>
   );
 }
-
-// import React, { useState, useEffect } from "react";
-// import { Link } from "react-router-dom";
-// import { listProjects } from "../utils/api";
-// import Project from "./Project";
-
-// function Projects() {
-// const [projects, setProjects] = useState([]);
-// useEffect(() => {
-//   function retrieveProjects() {
-//     const abortController = new AbortController();
-//     listProjects(abortController.signal).then(setProjects);
-//     return () => abortController.abort();
-//   }
-
-//   retrieveProjects();
-// }, []);
-
-// const list = projects.map((project) => (
-//   // <div>
-//   //   <div>Project ID: {project.project_id}</div>
-//   //   <div>Project Code: {project.project_code}</div>
-//   //   <div>Project Name: {project.project_name}</div>
-//   //   <div>Project Client ID: {project.client_id}</div>
-//   //   <div>Project Owner ID: {project.owner_id}</div>
-//   // </div>
-
-//   // <div>
-//   //   <Project project={project} />
-//   // </div>
-
-//   <div key={project.project_id}>
-//     <Link to={`/projects/${project.project_id}`} className="btn btn-primary">
-//       {project.project_name}
-//     </Link>
-//   </div>
-// ));
-
-//   return (
-//     <div>
-//       <h4>{list}</h4>
-//     </div>
-//   );
-// }
-
-// export default Projects;

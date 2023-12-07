@@ -39,8 +39,9 @@ function Project() {
   return (
     <div className="">
       <div className="proj-list-left-2">
+      <DirectNavToProject />
         <div className="proj-tabs">
-          <button
+          {/* <button
             className={`${"tab"}`}
             onClick={(e) => {
               e.preventDefault();
@@ -49,7 +50,7 @@ function Project() {
             }}
           >
             Projects
-          </button>
+          </button> */}
 
           <button
             className={`${"tab"}`}
@@ -59,14 +60,14 @@ function Project() {
               console.log(activeTab, "Tab2");
             }}
           >
-            Studies
+            IO Sheets
           </button>
 
           <button className={`${"tab"}`}>ACAD</button>
           <button className={`${"tab"}`}>BOM's</button>
         </div>
         <div className="proj-stud">
-          {activeTab === "Tab1" && <DirectNavToProject />}
+          {/* {activeTab === "Tab1" && <DirectNavToProject />} */}
 
           {activeTab === "Tab2" && (
             <TabStudies project_id={project.project_id} />
@@ -74,8 +75,9 @@ function Project() {
         </div>
       </div>
       <div className="proj-disp">
-        {/* PROJECT INFO */}
 
+        
+        {/* PROJECT INFO */}
         <h1>{project.project_name}</h1>
         <table className="table text-wrap text-center table-hover">
           <thead className="thead-dark">

@@ -2,7 +2,7 @@
 const knex = require("../db/connection");
 
 /** lists all equipment in asc order. */
-function list(equipment) {
+function list(rrcEquipmentId) {
   return knex("equipment_catalog")
     .select("*")
     .orderBy("rrc_equipment_id", "asc");
